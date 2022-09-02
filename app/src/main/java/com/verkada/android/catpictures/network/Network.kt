@@ -25,4 +25,5 @@ object Network {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(PictureService::class.java)
+
 }
