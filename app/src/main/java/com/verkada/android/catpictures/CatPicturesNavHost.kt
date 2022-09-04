@@ -28,10 +28,9 @@ import kotlinx.coroutines.*
 @Composable
 fun CatPicturesNavHost(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    catPictureList:List<Picture>
 ) {
-    lateinit var pictures:List<Picture>
-    pictures = ArrayList<Picture>()
     NavHost(
         navController = navController,
         startDestination = Screens.Home.name,
@@ -39,7 +38,7 @@ fun CatPicturesNavHost(
     ) {
 
         composable(route = Screens.Home.name) {
-            PictureGrid(10)
+            PictureGrid(catPictureList)
         }
 
         composable(route = Screens.Favorites.name) {

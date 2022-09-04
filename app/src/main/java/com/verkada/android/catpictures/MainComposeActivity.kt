@@ -3,6 +3,7 @@ package com.verkada.android.catpictures
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,8 +17,12 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.verkada.android.catpictures.theme.CatPicturesTheme
+import com.verkada.android.catpictures.viewModel.PictureViewModel
 
 class MainComposeActivity: ComponentActivity() {
+
+    val pictureViewModel by viewModels<PictureViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -72,7 +77,8 @@ class MainComposeActivity: ComponentActivity() {
                             .padding(innerPadding),
                         color = MaterialTheme.colors.background
                     ) {
-                        CatPicturesNavHost(navController = navController)
+                        CatPicturesNavHost(navController = navController, catPictureList = pictureViewModel.pictureList)
+                        pictureViewModel.getPictures()
                     }
                 }
             }
