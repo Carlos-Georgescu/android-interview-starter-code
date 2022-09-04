@@ -10,6 +10,7 @@ data class Picture (
     val color: String,
     @SerializedName("urls")
     val urls: Urls,
+    var isFav:Boolean = false
 )
 
 

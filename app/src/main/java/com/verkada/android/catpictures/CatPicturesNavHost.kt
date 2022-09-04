@@ -9,6 +9,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,18 +37,14 @@ fun CatPicturesNavHost(
         startDestination = Screens.Home.name,
         modifier = modifier
     ) {
+        var favPictureList = mutableListOf<Picture>();
 
         composable(route = Screens.Home.name) {
-            PictureGrid(catPictureList)
+            PictureGrid(catPictureList, favPictureList)
         }
 
         composable(route = Screens.Favorites.name) {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                Text(text = "Favorite screen")
-            }
+            PictureGrid(favPictureList, favPictureList)
         }
     }
 }

@@ -23,7 +23,7 @@ import com.verkada.android.catpictures.data.Picture
 @Composable
 fun EnlargedPicture(
     picture: Picture,
-    isFav: Boolean,
+    isFav: State<Boolean>,
     onClickFavIcon: (Picture) -> Unit = {}
 ) {
     Box(
