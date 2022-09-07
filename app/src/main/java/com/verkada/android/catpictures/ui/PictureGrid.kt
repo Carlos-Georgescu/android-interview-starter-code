@@ -28,6 +28,7 @@ fun PictureGrid(pictureList: List<Picture>, favPictureList: MutableList<Picture>
 
             EnlargedPicture(picture = pictureList[selectedIndex], onClickFavIcon = { it.isFav = !it.isFav
                 isFav.value = it.isFav
+                pictureList[selectedIndex].isFav = it.isFav
            if (it.isFav) favPictureList.add(it) else favPictureList.remove(it) },
                 isFav = isFav)
         }
@@ -41,6 +42,7 @@ fun PictureGrid(pictureList: List<Picture>, favPictureList: MutableList<Picture>
             itemsIndexed(items = pictureList) {index, item ->
                 SinglePictureInGrid(index = index , picture = item , highlighted =  index == selectedIndex, onClick = {
                     selectedIndex = it
+                    isFav.value = pictureList[it].isFav
                 } )
             }
         }

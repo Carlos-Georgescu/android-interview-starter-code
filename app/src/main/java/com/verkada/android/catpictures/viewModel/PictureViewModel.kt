@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.verkada.android.catpictures.data.Picture
 import com.verkada.android.catpictures.network.Network
-import com.verkada.android.catpictures.repository.PictureRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
